@@ -1,0 +1,43 @@
+{
+  "name": "akb-site",
+  "version": "0.0.1",
+  "description": "Personal site, testing things",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "Alexander Balashov",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.3.0",
+    "clsx": "^1.2.1",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.2",
+    "next": "^13.3.0",
+    "next-images": "^1.8.4",
+    "plaiceholder": "^2.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-slick": "^0.29.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.2",
+    "sass": "^1.62.0",
+    "sharp": "^0.32.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 100,
+    "singleQuote": false
+  }
+}
