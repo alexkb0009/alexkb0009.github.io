@@ -3,7 +3,6 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "next/link";
-import { getPlaiceholder } from "plaiceholder";
 import { slugify } from "../util";
 import { getImagePathsForPortfolioSlug, getThumbnailSrc } from "../helpers/image";
 import { CalculatedImage } from "./CalculatedImage";
