@@ -19,7 +19,7 @@ const robotoFlex = Roboto_Flex({
 
 export const metadata = {
     icons: {
-        icon: "logo_initials_tiny_yellow.png",
+        icon: "/favicon.ico",
     },
     title: "AKB",
     description: "This is some of the past work by Alex B.",
