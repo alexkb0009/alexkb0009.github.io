@@ -93,12 +93,11 @@ code {
     }
   }
 
-  &:hover {
-    .col-3 {
-      .imageholder {
-        img {
-          transform: scale3d(1.05,1.05,1.05);
-        }
+
+  .col-3 {
+    .imageholder:hover {
+      img {
+        transform: scale3d(1.05,1.05,1.05);
       }
     }
   }
@@ -233,6 +232,7 @@ $angle-right-svg: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/sv
     font-weight: 300;
   }
 
+  /*
   h2 > a.link-primary {
     &:after {
       content: $angle-right-svg;
@@ -247,12 +247,7 @@ $angle-right-svg: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/sv
       opacity: 1;
     }
   }
-
-  &:hover {
-    h2 > a.link-primary:after {
-      //opacity: 1;
-    }
-  }
+  */
 
   p:last-of-type {
     margin-bottom: 0;
@@ -431,7 +426,7 @@ $arrow-button-width : 100px;
         transition: transform 0.33s ease-out;
       }
       &:hover:after {
-        transform: scale3d(1.5,1.5,1);
+        transform: scale3d(1.35,1.35,1);
       }
       &.slick-prev {
         left: 0;

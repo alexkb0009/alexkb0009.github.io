@@ -5,7 +5,7 @@ permalink: ics-ux-marketing-page-header
 years: 2015
 tags: ["CSS3"]
 description: Something Something something
-link: /assets/examples/ics-ux-page-header-demo/
+link: /examples/ics-ux-page-header-demo/index.html
 link_title: Demo
 date: 2010-01-15
 ---

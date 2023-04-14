@@ -698,7 +698,7 @@ export function vizScript() {
                                 state.model.boxPoints.b1
                             );
                             state.temp.firstTextFixed.enabled = true;
-                            console.log(state.temp.firstTextFixed);
+                            // console.log(state.temp.firstTextFixed);
                         }
                         cx.fillText(
                             "design",
