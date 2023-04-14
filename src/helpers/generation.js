@@ -35,9 +35,9 @@ export async function getPortfolioItemBySlug(slug, includeContent = true) {
 
 export async function getAllPortfolioItems(includeContent = true) {
     const slugs = getPorfolioSlugs();
-    const items = await Promise.all(
-        slugs.map((slug) => getPortfolioItemBySlug(slug, includeContent))
-    );
+    const items = (
+        await Promise.all(slugs.map((slug) => getPortfolioItemBySlug(slug, includeContent)))
+    ).filter(({ disabled }) => !disabled);
     // sort posts by date in descending order
     items.sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
     return items;

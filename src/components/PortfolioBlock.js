@@ -27,7 +27,7 @@ export const PortfolioBlock = async ({ item }) => {
 
             <div className={clsx("left", "sm-width-full", `col-${thumbnailSrc ? 9 : 12}`)}>
                 <h2 className="h2 lh-condensed col-10 mt-0 mb-2">
-                    <Link href={itemHref} className="link-primary">
+                    <Link href={itemHref} className="link-primary text-500">
                         {title}
                     </Link>
                 </h2>

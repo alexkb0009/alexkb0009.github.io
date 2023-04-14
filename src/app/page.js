@@ -1,108 +1,60 @@
 import React from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons/faAngleRight";
+import { VizScript } from "../components/VizScript";
 
-import { getAllPortfolioItems } from "./../helpers/generation";
-import { PortfolioBlock } from "./../components/PortfolioBlock";
+import "./intro-style.css";
 
-export const dynamicParams = false;
-
-export default async function HomePage() {
-    const allPortfolioItems = await getAllPortfolioItems();
+export default function TestPage() {
     return (
-        <div>
-            <header className="header-background">
-                <div className="clearfix border-bottom-thin header-border">
-                    <ul className="list-reset right py-1 header-text font-smoothing">
-                        <li className="inline-block">
-                            <Link
-                                href="/about"
-                                className="align-middle link-primary header-link mr-2"
+        <VizScript>
+            <div id="header-bar">
+                <div className="container">
+                    <h2 id="title" className="mt-0 px-2 text-400">
+                        akb
+                    </h2>
+                </div>
+            </div>
+            <canvas id="front-page-canvas"></canvas>
+
+            <div id="frontContainer">
+                <h4 id="f_locationLabel">Boston, MA</h4>
+                <div id="f_menu" style={{ opacity: 0 }}>
+                    <ul>
+                        <li className="social">
+                            <a
+                                href="https://github.com/alexkb0009"
+                                target="_blank"
+                                rel="nofollower referrer"
                             >
-                                About
-                            </Link>
+                                <FontAwesomeIcon icon={faGithub} fixedWidth />
+                            </a>
+                        </li>
+
+                        <li className="social">
+                            <a
+                                target="_blank"
+                                href="https://www.linkedin.com/profile/view?id=116314665"
+                            >
+                                <FontAwesomeIcon icon={faLinkedin} fixedWidth />
+                            </a>
                         </li>
                     </ul>
                 </div>
 
-                <div className="container mx-auto px-2 mb-1 clearfix header-text">
-                    <h1 className="h1 inline-block col-9 sm-width-full py-1 mt-2 mb-0 header-title text-500">
-                        <span id="title-main"></span> <span className="text-100">by Alex</span>
-                    </h1>
-
-                    <div className="clearfix mb-3 py-1">
-                        <div className="col-8 sm-width-full left border-top-thin table social-icons-header">
-                            <div className="inline-block h4 mt-2 mr-2">
-                                <a
-                                    href="https://linkedin.com/in/alexanderbalashov/"
-                                    target="_blank"
-                                    rel="noreferrer nofollower"
-                                    className="block h4"
-                                    title="LinkedIn"
-                                >
-                                    <FontAwesomeIcon icon={faLinkedin} />
-                                </a>
-                            </div>
-                            <div
-                                className="inline-block h4 mt-2 mr-1"
-                                style={{
-                                    paddingLeft: "16px",
-                                    borderLeft: "1px solid rgba(255,255,255,0.25)",
-                                }}
-                            >
-                                <a
-                                    href="https://github.com/alexkb0009"
-                                    target="_blank"
-                                    rel="noreferrer nofollower"
-                                    title="GitHub"
-                                    className="block h4"
-                                >
-                                    <FontAwesomeIcon icon={faGithub} />
-                                </a>
-                            </div>
-                            <div
-                                className="inline-block mt-2 sm-hidden"
-                                style={{ lineHeight: "31px" }}
-                            >
-                                alexkb0009
-                            </div>
-                            <div
-                                className="inline-block h4 mt-2 mr-1 ml-2 sm-hidden"
-                                style={{
-                                    paddingLeft: "16px",
-                                    borderLeft: "1px solid rgba(255,255,255,0.25)",
-                                }}
-                            >
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </div>
-                            <div
-                                className="inline-block mt-2 sm-hidden"
-                                style={{ lineHeight: "31px" }}
-                            >
-                                alex <small>dot</small> balashov <small>at</small> gmail{" "}
-                                <small>dot</small> com
-                            </div>
-                        </div>
-                    </div>
+                <div id="f_latestItems" style={{ opacity: 0 }}>
+                    <h3>
+                        <span className="text-300 d-none d-md-inline">View</span>{" "}
+                        <Link href="/work" className="link-primary" prefetch>
+                            Recent Work&nbsp;
+                            <FontAwesomeIcon icon={faAngleRight} />
+                        </Link>
+                    </h3>
                 </div>
-            </header>
-            <div className="container mx-auto px-2 py-3">
-                <PortfolioBlocks allPortfolioItems={allPortfolioItems} />
             </div>
-        </div>
+        </VizScript>
     );
 }
-
-const PortfolioBlocks = ({ allPortfolioItems }) => {
-    return allPortfolioItems.map((item, i, all) => {
-        return (
-            <React.Fragment key={i}>
-                <PortfolioBlock key={item.slug} item={item} />
-                {i < all.length - 1 && <hr className="mb-3 portfolio-block-separator" />}
-            </React.Fragment>
-        );
-    });
-};

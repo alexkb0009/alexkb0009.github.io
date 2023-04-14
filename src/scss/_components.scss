@@ -236,6 +236,7 @@ $angle-right-svg: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/sv
   h2 > a.link-primary {
     &:after {
       content: $angle-right-svg;
+      color: inherit;
       position: absolute;
       width: 15px;
       margin-left: 15px;

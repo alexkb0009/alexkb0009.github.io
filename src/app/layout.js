@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-// import Script from "next/script";
+import Script from "next/script";
 import { Roboto_Flex } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,7 +36,7 @@ export default async ({ children }) => {
                     <div className="container mx-auto px-2">
                         <p className="col-8 sm-width-full left py-2 mb-0 no-print">
                             <small>
-                                <FontAwesomeIcon icon={faCopyright} /> Alexander Balashov 2015 -
+                                <FontAwesomeIcon icon={faCopyright} /> Alexander Balashov 2012 -
                                 2023
                             </small>
                         </p>
@@ -52,7 +52,6 @@ export default async ({ children }) => {
                         */}
                     </div>
                 </div>
-                {/*
                 <Script
                     strategy="afterInteractive"
                     src="https://www.googletagmanager.com/gtag/js?id=UA-60994823-4"
@@ -71,7 +70,6 @@ export default async ({ children }) => {
         `,
                     }}
                 />
-                */}
             </body>
         </html>
     );

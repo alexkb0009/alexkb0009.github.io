@@ -1,10 +1,10 @@
 import React from "react";
 import clsx from "clsx";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags } from "@fortawesome/free-solid-svg-icons/faTags";
 import { TopNavInner } from "../../../components/TopNav";
 import { getAllTags, mapSlugsToTags } from "../../../helpers/generation";
-import Link from "next/link";
 import { slugify } from "../../../util";
 
 export default async ({ children, params, ...props }) => {
