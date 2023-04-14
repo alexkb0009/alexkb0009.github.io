@@ -8,7 +8,7 @@ const getPortfolioListings = async () => {
     return await getAllPortfolioItems(true);
 };
 
-export default async function HomePage() {
+export default async () => {
     const allPortfolioItems = await getPortfolioListings();
     return (
         <div className="container mx-auto px-2 py-3">
@@ -22,4 +22,4 @@ export default async function HomePage() {
             })}
         </div>
     );
-}
+};
