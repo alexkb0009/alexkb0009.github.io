@@ -22,6 +22,7 @@ export const metadata = {
         icon: "logo_initials_tiny_yellow.png",
     },
     title: "AKB",
+    description: "This is some of the past work by Alex B.",
 };
 
 // Layouts must accept a children prop.
