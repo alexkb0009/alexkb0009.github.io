@@ -15,8 +15,8 @@ export function getImagePathsForPortfolioSlug(slug) {
 export async function getThumbnailSrc(
     imagePath,
     options = {
-        width: 400,
-        height: 300,
+        width: 534,
+        height: 400,
     }
 ) {
     const imagePathParts = imagePath.split("/");
