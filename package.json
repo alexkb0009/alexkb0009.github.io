@@ -11,7 +11,7 @@
     "lint": "next lint",
     "copy-outfolder": "cp -R out/* ../personal-site-next-out/",
     "copy-index": "cp .next/server/app/index.html ../personal-site-next-out/index.html && cp .next/server/app/index.rsc ../personal-site-next-out/index.txt",
-    "push": "cd ../personal-site-next-out && git add . && git commit -m 'stuff' && git push origin output && cd ../personal-site-next"
+    "push": "cd ../personal-site-next-out && git checkout main && git add . && git commit -m 'stuff' && git push origin main && cd ../personal-site-next"
   },
   "author": "Alexander Balashov",
   "license": "ISC",
