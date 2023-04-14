@@ -5,7 +5,7 @@ permalink: personal-portfolio-splashpage
 years: 2014
 tags: ["JavaScript", "Canvas"]
 description: Something Something something
-link: "/assets/examples/old-folio-intro/"
+link: "/examples/old-folio-intro/index.html"
 link_title: "View Demo"
 date: 2010-01-18
 ---
