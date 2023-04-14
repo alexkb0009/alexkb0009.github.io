@@ -7,13 +7,21 @@ import { faCopyright } from "@fortawesome/free-regular-svg-icons/faCopyright";
 export const Footer = ({ className = "mt-2 mt-lg-4", containerWidth = true }) => {
     return (
         <div className={clsx("border-top-thin clearfix footer no-print", className)}>
-            <div className={clsx(containerWidth && "container", "mx-auto", "px-2")}>
-                <p className="col-8 sm-width-full left py-2 mb-0 no-print">
+            <div
+                className={clsx(
+                    containerWidth && "container",
+                    "mx-auto",
+                    "px-2",
+                    "d-flex",
+                    "justify-content-between"
+                )}
+            >
+                <p className="col py-2 mb-0 no-print">
                     <small>
                         <FontAwesomeIcon icon={faCopyright} /> Alexander Balashov 2012 - 2023
                     </small>
                 </p>
-                <p className="col-4 sm-width-full left text-right py-2 mb-0 no-print">
+                <p className="col text-right py-2 mb-0 no-print">
                     <small>
                         <Link href="/privacy/">Privacy Policy</Link>
                     </small>

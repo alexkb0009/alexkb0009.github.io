@@ -6,7 +6,16 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 
 export const TopNav = ({ className }) => {
     return (
-        <header className={clsx("border-bottom-thin", "clearfix", "no-print", className)}>
+        <header
+            className={clsx(
+                "border-bottom-thin",
+                "no-print",
+                "d-flex",
+                "justify-content-between",
+                "align-items-center",
+                className
+            )}
+        >
             <TopNavInner />
         </header>
     );
@@ -15,23 +24,13 @@ export const TopNav = ({ className }) => {
 export const TopNavInner = ({ className }) => {
     return (
         <>
-            <div
-                className={clsx(
-                    "left",
-                    "sm-width-full",
-                    "py-1",
-                    "px-2",
-                    "mt-1",
-                    "mt-lg-0",
-                    className
-                )}
-            >
+            <div className={clsx("py-1", "px-2", className)}>
                 <Link href="/work" className="align-middle link-primary">
                     <FontAwesomeIcon icon={faChevronLeft} fixedWidth />
                 </Link>
             </div>
-            <div className={clsx("right", "sm-hidden", "px-2", className)}>
-                <ul className="list-reset mt-lg-1 mb-2 mb-lg-1">
+            <div className={clsx("px-2", className)}>
+                <ul className="list-reset">
                     <TopNavLinks />
                 </ul>
             </div>

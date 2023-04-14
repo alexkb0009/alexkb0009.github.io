@@ -186,3 +186,31 @@
       text-decoration: none;
     }
   }
+
+
+
+  .d-none {
+    display: none;
+  }
+
+  .d-flex {
+    display: flex;
+  }
+
+  .justify-content-between {
+    justify-content: space-between;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
+
+  @media screen and (min-width: 600px) {
+    .d-md-block {
+      display: block;
+    }
+
+    .d-md-inline {
+      display: inline;
+    }
+  }

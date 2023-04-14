@@ -13,24 +13,14 @@ export default async ({ children }) => {
     return (
         <>
             <header className="header-background">
-                <div className="clearfix border-bottom-thin header-border">
-                    <div
-                        className={clsx(
-                            "left",
-                            "sm-width-full",
-                            "py-1",
-                            "px-2",
-                            "mt-1",
-                            "mt-lg-0",
-                            "header-text"
-                        )}
-                    >
+                <div className="border-bottom-thin header-border d-flex align-items-center justify-content-between">
+                    <div className={clsx("py-1", "px-2", "header-text")}>
                         <Link href="/" className="align-middle link-primary">
                             <FontAwesomeIcon icon={faHome} fixedWidth />
                         </Link>
                     </div>
-                    <div className={clsx("right", "sm-hidden", "px-2", "header-text")}>
-                        <ul className="list-reset mt-lg-1 mb-2 mb-lg-1">
+                    <div className={clsx("px-2", "header-text")}>
+                        <ul className="list-reset">
                             <TopNavLinks />
                         </ul>
                     </div>
