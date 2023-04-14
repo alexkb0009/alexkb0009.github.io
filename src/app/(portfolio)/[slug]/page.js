@@ -66,7 +66,7 @@ export default async ({ params }) => {
 
                 {link && link_title && (
                     <div className="link-to-demo-container">
-                        <a className="link-to-demo" href={link} target="_blank">
+                        <a className="link-to-demo orange-button" href={link} target="_blank">
                             {link_title}
                             <FontAwesomeIcon icon={faAngleRight} className="mx-2" />
                         </a>

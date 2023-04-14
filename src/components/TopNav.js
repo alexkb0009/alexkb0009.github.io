@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
+import { faList } from "@fortawesome/free-solid-svg-icons/faList";
 
 export const TopNav = ({ className }) => {
     return (
@@ -26,7 +26,7 @@ export const TopNavInner = ({ className }) => {
         <>
             <div className={clsx("py-1", "px-2", className)}>
                 <Link href="/work" className="align-middle link-primary">
-                    <FontAwesomeIcon icon={faChevronLeft} fixedWidth />
+                    <FontAwesomeIcon icon={faList} fixedWidth />
                 </Link>
             </div>
             <div className={clsx("px-2", className)}>

@@ -118,7 +118,6 @@
     min-width: 275px;
   }
   #frontContainer #f_latestItems {
-    font-family: 'Segoe UI', 'Helvetica Neue';
     position: absolute;
     opacity: 1 !important;
     padding: 5px;

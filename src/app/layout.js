@@ -1,6 +1,6 @@
 import React from "react";
 import Script from "next/script";
-import { Roboto_Flex } from "next/font/google";
+import { Heebo } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -8,9 +8,9 @@ import "./../scss/styles.scss";
 
 config.autoAddCss = false;
 
-const robotoFlex = Roboto_Flex({
+const heebo = Heebo({
     subsets: ["latin"],
-    variable: "--font-roboto-flex",
+    variable: "--font-heebo",
     display: "swap",
 });
 
@@ -26,7 +26,7 @@ export const metadata = {
 // This will be populated with nested layouts or pages
 export default async ({ children }) => {
     return (
-        <html lang="en" className={robotoFlex.className}>
+        <html lang="en" className={heebo.className}>
             <body>
                 {children}
                 <Script

@@ -67,3 +67,12 @@ export async function getAllPortfolioItemsForTagSlug(tagSlug) {
     const allPortfolioItems = await getAllPortfolioItems(true);
     return allPortfolioItems.filter(({ tags }) => !!tags.find((tag) => slugify(tag) === tagSlug));
 }
+
+export function generatePageParams(totalCount, countPerPage) {
+    const params = [];
+    for (let i = 1; i <= totalCount; i += countPerPage) {
+        const pageNum = Math.floor((i - 1) / countPerPage) + 2;
+        params.push({ page: pageNum.toString() });
+    }
+    return params;
+}

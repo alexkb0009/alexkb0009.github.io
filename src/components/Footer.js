@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons/faCopyright";
 
-export const Footer = ({ className = "mt-2 mt-lg-4", containerWidth = true }) => {
+export const Footer = ({ className = "mt-2 mt-lg-3", containerWidth = true }) => {
     return (
         <div className={clsx("border-top-thin clearfix footer no-print", className)}>
             <div

@@ -11,6 +11,7 @@
   }
   
   .text-right { text-align: right; }
+  .text-center { text-align: center; }
   
   .no-underline {
     text-decoration: none !important;
@@ -134,6 +135,11 @@
   .mr-4 { margin-right: $spacer-4; }
   .mb-4 { margin-bottom: $spacer-4; }
   .ml-4 { margin-left: $spacer-4; }
+
+  .mt-5 { margin-top: $spacer-5; }
+  .mr-5 { margin-right: $spacer-5; }
+  .mb-5 { margin-bottom: $spacer-5; }
+  .ml-5 { margin-left: $spacer-5; }
   
   // Responsive margin
   @media (min-width: 52em) {
@@ -201,8 +207,17 @@
     justify-content: space-between;
   }
 
+  .justify-content-center {
+    justify-content: center;
+  }
+
   .align-items-center {
     align-items: center;
+  }
+
+  .flex-grow-1 {
+    flex-grow: 1;
+    flex-shrink: 0;
   }
 
   @media screen and (min-width: 600px) {

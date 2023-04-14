@@ -25,7 +25,7 @@ export default async ({ children }) => {
                         </ul>
                     </div>
                 </div>
-                <div className="container mx-auto px-2 mb-1 clearfix header-text">
+                <div className="container mx-auto px-2 clearfix header-text">
                     <h1 className="h1 inline-block col-9 sm-width-full py-1 mt-2 mb-0 header-title text-500">
                         <span id="title-main"></span> <span className="text-100">by Alex</span>
                     </h1>

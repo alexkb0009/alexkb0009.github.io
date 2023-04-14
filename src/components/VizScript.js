@@ -1349,10 +1349,7 @@ export function vizScript() {
 
                 state.ce.latestItems.style.left = state.ce.menu.style.left;
                 state.ce.latestItems.style.top =
-                    parseInt(state.ce.menu.style.top) -
-                    state.ce.latestItems.offsetHeight -
-                    2 +
-                    "px";
+                    parseInt(state.ce.menu.style.top) - state.ce.latestItems.offsetHeight + "px";
                 /*
             state.ce.pageTitle.style.top  = utility.percentDim(utility.point2DFrom3D(["detailPoints", "box1frontLeft"]), Y) - state.ce.pageTitle.offsetHeight - 15 + 'px';
             state.ce.pageTitle.style.left = utility.percentDim(utility.point2DFrom3D(["detailPoints", "box1frontLeft"]), X) + 15 + 'px';

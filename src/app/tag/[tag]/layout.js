@@ -8,14 +8,14 @@ import { getAllTags, mapSlugsToTags } from "../../../helpers/generation";
 import { slugify } from "../../../util";
 import { Footer } from "../../../components/Footer";
 
-export default async ({ children, params, ...props }) => {
+export default async ({ children, params }) => {
     const { tag } = params;
     const allTags = await getAllTags();
     const slugsToTags = mapSlugsToTags(allTags);
     return (
         <>
             <header className="header-background">
-                <div className="clearfix border-bottom-thin header-border">
+                <div className="border-bottom-thin header-border d-flex align-items-center justify-content-between">
                     <TopNavInner className="header-text" />
                 </div>
 
