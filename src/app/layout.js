@@ -1,10 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Script from "next/script";
 import { Roboto_Flex } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopyright } from "@fortawesome/free-regular-svg-icons/faCopyright";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./../scss/styles.scss";
@@ -32,26 +29,6 @@ export default async ({ children }) => {
         <html lang="en" className={robotoFlex.className}>
             <body>
                 {children}
-                <div className="border-top-thin clearfix mt-2 mt-lg-4 footer no-print">
-                    <div className="container mx-auto px-2">
-                        <p className="col-8 sm-width-full left py-2 mb-0 no-print">
-                            <small>
-                                <FontAwesomeIcon icon={faCopyright} /> Alexander Balashov 2012 -
-                                2023
-                            </small>
-                        </p>
-                        <p className="col-4 sm-width-full left text-right py-2 mb-0 no-print">
-                            <small>
-                                <Link href="/privacy/">Privacy Policy</Link>
-                            </small>
-                        </p>
-                        {/* TODO:
-                        <p className="col-8 sm-width-full left py-2 mb-0 print-only">
-                            <small>Printed from <a href="{{ page.url | replace:'index.html','' | prepend: site.url }}">{{ page.url | replace:'index.html','' | prepend: site.url }}</a></small>
-                        </p>
-                        */}
-                    </div>
-                </div>
                 <Script
                     strategy="afterInteractive"
                     src="https://www.googletagmanager.com/gtag/js?id=UA-60994823-4"

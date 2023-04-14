@@ -221,10 +221,8 @@ export function vizScript() {
 
         function resizeFunc() {
             setTimeout(function () {
-                utility.setCanvasSize(
-                    parseInt(document.body.clientWidth || window.innerWidth),
-                    window.innerHeight - settings.bottomOffset
-                );
+                const canvasSize = canvas.getBoundingClientRect();
+                utility.setCanvasSize(canvasSize.width, canvasSize.height - settings.bottomOffset);
                 window.requestAnimationFrame(drawInitial);
                 setTimeout(ui.setUI, 100);
                 // document.getElementById("bgarea").style.height = utility.percentDim(

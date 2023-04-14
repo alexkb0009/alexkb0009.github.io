@@ -7,6 +7,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
 import { TopNavLinks } from "../../components/TopNav";
+import { Footer } from "../../components/Footer";
 
 export default async ({ children }) => {
     return (
@@ -96,6 +97,7 @@ export default async ({ children }) => {
                 </div>
             </header>
             {children}
+            <Footer />
         </>
     );
 };

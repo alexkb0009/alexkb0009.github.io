@@ -6,6 +6,7 @@ import { faTags } from "@fortawesome/free-solid-svg-icons/faTags";
 import { TopNavInner } from "../../../components/TopNav";
 import { getAllTags, mapSlugsToTags } from "../../../helpers/generation";
 import { slugify } from "../../../util";
+import { Footer } from "../../../components/Footer";
 
 export default async ({ children, params, ...props }) => {
     const { tag } = params;
@@ -53,6 +54,7 @@ export default async ({ children, params, ...props }) => {
                 </div>
             </header>
             {children}
+            <Footer />
         </>
     );
 };
