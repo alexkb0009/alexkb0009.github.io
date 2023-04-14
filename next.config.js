@@ -7,7 +7,6 @@ const nextConfig = {
         unoptimized: true,
     },
     output: "export",
-    distDir: "../personal-site-next-out",
 };
 const withMDX = require("@next/mdx")();
 module.exports = withMDX(nextConfig);
