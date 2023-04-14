@@ -30,17 +30,18 @@ export async function getPortfolioItemBySlug(slug, includeContent = true) {
         item.excerpt = htmlExcerpt;
     }
 
-    return item;
+    return Promise.resolve(item);
 }
 
 export async function getAllPortfolioItems(includeContent = true) {
     const slugs = getPorfolioSlugs();
-    const items = (
-        await Promise.all(slugs.map((slug) => getPortfolioItemBySlug(slug, includeContent)))
-    ).filter(({ disabled }) => !disabled);
-    // sort posts by date in descending order
-    items.sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
-    return items;
+    return (
+        await Promise.all(
+            slugs.map(async (slug) => await getPortfolioItemBySlug(slug, includeContent))
+        )
+    )
+        .filter(({ disabled }) => !disabled)
+        .sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
 }
 
 export async function getAllTags() {

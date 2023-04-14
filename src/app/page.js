@@ -48,7 +48,7 @@ export default function TestPage() {
                 <div id="f_latestItems" style={{ opacity: 0 }}>
                     <h3>
                         <span className="text-300 d-none d-md-inline">View</span>{" "}
-                        <Link href="/work" className="link-primary" prefetch>
+                        <Link href="/work" className="link-primary">
                             Recent Work&nbsp;
                             <FontAwesomeIcon icon={faAngleRight} />
                         </Link>

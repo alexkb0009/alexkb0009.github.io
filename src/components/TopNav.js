@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 
 export const TopNav = ({ className }) => {
