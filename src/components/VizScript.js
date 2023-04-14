@@ -221,8 +221,11 @@ export function vizScript() {
 
         function resizeFunc() {
             setTimeout(function () {
-                const canvasSize = canvas.getBoundingClientRect();
-                utility.setCanvasSize(canvasSize.width, canvasSize.height - settings.bottomOffset);
+                const containerSize = state.ce.container.getBoundingClientRect();
+                utility.setCanvasSize(
+                    containerSize.width,
+                    containerSize.height - settings.bottomOffset
+                );
                 window.requestAnimationFrame(drawInitial);
                 setTimeout(ui.setUI, 100);
                 // document.getElementById("bgarea").style.height = utility.percentDim(
@@ -1330,8 +1333,8 @@ export function vizScript() {
             setUI: function () {
                 // state.ce.locationLabel.style.left = utility.percentDim(utility.point2DFrom3D(["box3Points", "b2"]), X) + 10 + 'px';
                 // state.ce.locationLabel.style.top  = utility.percentDim(["horizon", "e"], Y) - 25 + 'px';
-                state.ce.container.style.width = canvas.width + "px";
-                state.ce.container.style.height = canvas.height + "px";
+                // state.ce.container.style.width = canvas.width + "px";
+                // state.ce.container.style.height = canvas.height + "px";
 
                 var offsetWidth = 60;
                 // if (window.innerWidth >= 400) offsetWidth = 40;
