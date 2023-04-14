@@ -1,7 +1,9 @@
 import React from "react";
 import { TopNav } from "../../components/TopNav";
 
-export default ({ children, params, ...props }) => {
+export const dynamicParams = false;
+
+export default ({ children }) => {
     return (
         <>
             <TopNav />

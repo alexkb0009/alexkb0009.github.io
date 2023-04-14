@@ -6,7 +6,7 @@ import {
     getAllPortfolioItemsForTagSlug,
 } from "../../../helpers/generation";
 
-export const dynamic = "error";
+export const dynamicParams = false;
 
 /** Generates all the tag views */
 export async function generateStaticParams() {

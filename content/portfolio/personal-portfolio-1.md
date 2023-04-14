@@ -5,7 +5,7 @@ permalink: personal-portfolio-1
 years: 2011-2015
 tags: ["CSS3", "Python", "PHP", "Bolt CMS", "JavaScript", "Canvas"]
 description: Something Something something
-link: "/assets/examples/old-folio-intro/"
+link: "/examples/old-folio-intro/index.html"
 link_title: "View Demo"
 date: 2010-01-08
 ---

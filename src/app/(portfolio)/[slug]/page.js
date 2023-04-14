@@ -6,7 +6,7 @@ import { getImagePathsForPortfolioSlug } from "../../../helpers/image";
 import { markdownToHtml } from "../../../helpers/markdownToHtml";
 import { Carousel } from "../../../components/Carousel";
 
-export const dynamic = "error";
+export const dynamicParams = false;
 
 /** Generates all the static portfolio pages */
 export async function generateStaticParams() {

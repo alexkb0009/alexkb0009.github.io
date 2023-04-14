@@ -8,6 +8,8 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
 import { getAllPortfolioItems } from "./../helpers/generation";
 import { PortfolioBlock } from "./../components/PortfolioBlock";
 
+export const dynamicParams = false;
+
 export default async function HomePage() {
     const allPortfolioItems = await getAllPortfolioItems();
     return (
