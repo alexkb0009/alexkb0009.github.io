@@ -5,6 +5,7 @@
  */
 
 import React, { useEffect } from "react";
+import debounce from "lodash.debounce";
 
 export function vizScript() {
     // Global
@@ -219,21 +220,19 @@ export function vizScript() {
                 setTimeout(callback, 100);
             };
 
-        function resizeFunc() {
-            setTimeout(function () {
-                const containerSize = state.ce.container.getBoundingClientRect();
-                utility.setCanvasSize(
-                    containerSize.width,
-                    containerSize.height - settings.bottomOffset
-                );
-                window.requestAnimationFrame(drawInitial);
-                setTimeout(ui.setUI, 100);
-                // document.getElementById("bgarea").style.height = utility.percentDim(
-                //     ["horizon", "e"],
-                //     Y
-                // );
-            }, 150);
-        }
+        var resizeFunc = debounce(function () {
+            const containerSize = state.ce.container.getBoundingClientRect();
+            utility.setCanvasSize(
+                containerSize.width,
+                containerSize.height - settings.bottomOffset
+            );
+            window.requestAnimationFrame(drawInitial);
+            setTimeout(ui.setUI, 100);
+            // document.getElementById("bgarea").style.height = utility.percentDim(
+            //     ["horizon", "e"],
+            //     Y
+            // );
+        }, 250);
 
         window.addEventListener("resize", resizeFunc, { passive: true });
 
