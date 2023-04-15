@@ -49,7 +49,10 @@ export default function TestPage() {
                         </ul>
                     </div>
 
-                    <div id="f_latestItems" style={{ opacity: 0 }}>
+                    <div
+                        id="f_latestItems"
+                        style={{ opacity: 1, top: "calc(.65 * (100vh - 57px) - 45px)" }}
+                    >
                         <h3>
                             <span className="text-300">View</span>{" "}
                             <Link href="/work" className="link-primary">

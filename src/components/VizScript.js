@@ -125,7 +125,7 @@ export function vizScript() {
                     // Case of reference pt supplied.
                     point = state.model[point[0]][point[1]];
                 }
-                if (addVector != null) point = utility.applyVector(point, addVector);
+                point = utility.applyVector(point, addVector);
                 if (scale == null)
                     scale =
                         settings.focalLength / (settings.focalLength + point.z - settings.camera.z);
@@ -140,13 +140,10 @@ export function vizScript() {
                 };
             },
             applyVector: function (originalPoint, vector) {
-                if (vector.x == null) vector.x = 0;
-                if (vector.y == null) vector.y = 0;
-                if (vector.z == null) vector.z = 0;
                 return {
-                    x: originalPoint.x + vector.x,
-                    y: originalPoint.y + vector.y,
-                    z: originalPoint.z + vector.z,
+                    x: originalPoint.x + ((vector && vector.x) || 0),
+                    y: originalPoint.y + ((vector && vector.y) || 0),
+                    z: originalPoint.z + ((vector && vector.z) || 0),
                 };
             },
             setCanvasSize: function (width, height) {
