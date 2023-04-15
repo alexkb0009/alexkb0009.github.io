@@ -9,13 +9,13 @@ import {
 export const dynamicParams = false;
 
 /** Generates all the tag views */
-export async function generateStaticParams() {
-    const allTagSlugs = Object.keys(mapSlugsToTags(await getAllTags()));
+export function generateStaticParams() {
+    const allTagSlugs = Object.keys(mapSlugsToTags(getAllTags()));
     return allTagSlugs.map((tag) => ({ tag }));
 }
 
-export default async ({ params }) => {
-    const portfolioItemsForTag = await getAllPortfolioItemsForTagSlug(params.tag);
+export default ({ params }) => {
+    const portfolioItemsForTag = getAllPortfolioItemsForTagSlug(params.tag);
     return (
         <>
             <div className="container mx-auto px-2 py-3">

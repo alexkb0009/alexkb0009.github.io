@@ -10,70 +10,70 @@
     }
   }
   
-  .text-right { text-align: right; }
-  .text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
   
-  .no-underline {
-    text-decoration: none !important;
-  
-    &:hover {
-      text-decoration: no-underline !important;
-    }
+.no-underline {
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: no-underline !important;
   }
-  
-  .bold { font-weight: bold; }
-  .uppercase { text-transform: uppercase; }
-  
-  .lh-condensed { line-height: 1.25; }
-  
-  .list-reset {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  /* Border utilities */
-  .border-bottom-thick { border-bottom: 2px solid; border-color: currentColor; }
-  .border-bottom-thin { border-bottom: 1px solid; border-color: currentColor; }
-  .border-top-thick { border-top: 2px solid; border-color: currentColor; }
-  .border-top-thin { border-top: 1px solid; border-color: currentColor; }
-  .border-0 { border: 0; }
-  
-  
-  /* Theme color utilities */
-  .header-background {
-    background-color: #555; // $color-background;
-    box-shadow: inset 0 -20px 20px -20px rgba(0, 0, 0, 0.75);
-  }
-  .header-border { border-color: rgba(255,255,255,0.2); /*$color-foreground;*/ }
-  .header-title { color: $color-title; }
-  .header-text { color: $color-foreground; }
-  .header-social { fill: $color-foreground; }
-  .header-social-accent { fill: $color-dot-accent; color: $color-dot-accent; }
-  .header-link:hover { color: $color-nav-link !important; } // used for navigation links on homepage
-  .text-accent { color: $color-text-accent; } // used for date in post list and home link
-  .text-gray { color: #999; } // used for date in post list and home link
-  
-  /* Layout utilities */
-  .container { max-width: $container-width; }
-  
-  .col-1 { width: (1 / 12 * 100%); }
-  .col-2 { width: (2 / 12 * 100%); }
-  .col-3 { width: (3 / 12 * 100%); }
-  .col-4 { width: (4 / 12 * 100%); }
-  .col-5 { width: (5 / 12 * 100%); }
-  .col-6 { width: (6 / 12 * 100%); }
-  .col-7 { width: (7 / 12 * 100%); }
-  .col-8 { width: (8 / 12 * 100%); }
-  .col-9 { width: (9 / 12 * 100%); }
-  .col-10 { width: (10 / 12 * 100%); }
-  .col-11 { width: (11 / 12 * 100%); }
-  .col-12 { width: 100%; }
-  
-  
-  .block        { display: block !important; }
-  .inline-block { display: inline-block !important; }
-  
-  .table { display: table !important; }
+}
+
+.bold { font-weight: bold; }
+.uppercase { text-transform: uppercase; }
+
+.lh-condensed { line-height: 1.25; }
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Border utilities */
+.border-bottom-thick { border-bottom: 2px solid; border-color: currentColor; }
+.border-bottom-thin { border-bottom: 1px solid; border-color: currentColor; }
+.border-top-thick { border-top: 2px solid; border-color: currentColor; }
+.border-top-thin { border-top: 1px solid; border-color: currentColor; }
+.border-0 { border: 0; }
+
+
+/* Theme color utilities */
+.header-background {
+  background-color: #555; // $color-background;
+  box-shadow: inset 0 -20px 20px -20px rgba(0, 0, 0, 0.75);
+}
+.header-border { border-color: rgba(255,255,255,0.2); /*$color-foreground;*/ }
+.header-title { color: $color-title; }
+.header-text { color: $color-foreground; }
+.header-social { fill: $color-foreground; }
+.header-social-accent { fill: $color-dot-accent; color: $color-dot-accent; }
+.header-link:hover { color: $color-nav-link !important; } // used for navigation links on homepage
+.text-accent { color: $color-text-accent; } // used for date in post list and home link
+.text-gray { color: #999; } // used for date in post list and home link
+
+/* Layout utilities */
+.container { max-width: $container-width; }
+
+.col-1 { width: (1 / 12 * 100%); }
+.col-2 { width: (2 / 12 * 100%); }
+.col-3 { width: (3 / 12 * 100%); }
+.col-4 { width: (4 / 12 * 100%); }
+.col-5 { width: (5 / 12 * 100%); }
+.col-6 { width: (6 / 12 * 100%); }
+.col-7 { width: (7 / 12 * 100%); }
+.col-8 { width: (8 / 12 * 100%); }
+.col-9 { width: (9 / 12 * 100%); }
+.col-10 { width: (10 / 12 * 100%); }
+.col-11 { width: (11 / 12 * 100%); }
+.col-12 { width: 100%; }
+
+
+.block        { display: block !important; }
+.inline-block { display: inline-block !important; }
+
+.table { display: table !important; }
   
   @media (max-width: $breakpoint-lg) {
     .sm-width-full { width: 100% !important; }
@@ -209,6 +209,10 @@
 
   .justify-content-center {
     justify-content: center;
+  }
+
+  .justify-content-around {
+    justify-content: space-around;
   }
 
   .align-items-center {

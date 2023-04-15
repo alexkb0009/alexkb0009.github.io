@@ -6,6 +6,8 @@
 
 import React, { useEffect } from "react";
 import debounce from "lodash.debounce";
+import { heebo } from "../helpers/font";
+import clsx from "clsx";
 
 export function vizScript() {
     // Global
@@ -22,9 +24,9 @@ export function vizScript() {
             center: [50, 50],
         },
         fonts: {
-            header: "Segoe UI, Open Sans, HelveticaNeue, sans-serif",
-            header2: "Segoe UI Light, Open Sans, HelveticaNeue, sans-serif",
-            small: "sans-serif",
+            header: heebo.style.fontFamily + ", HelveticaNeue, sans-serif",
+            header2: heebo.style.fontFamily + ", HelveticaNeue, sans-serif",
+            small: heebo.style.fontFamily + ", HelveticaNeue, sans-serif",
         },
         text: {
             initialTextOffset: 75,
@@ -86,7 +88,6 @@ export function vizScript() {
             // Cached Elements
             pageTitle: document.getElementById("title"),
             container: document.getElementById("frontContainer"),
-            locationLabel: document.getElementById("f_locationLabel"),
             menu: document.getElementById("f_menu"),
             latestItems: document.getElementById("f_latestItems"),
         },
@@ -554,7 +555,7 @@ export function vizScript() {
             }
 
             // Text
-            cx.font = "8pt sans-serif";
+            cx.font = "8pt " + settings.fonts.small;
             cx.fillStyle = "#444";
             if (state.time < 300) {
                 cx.fillText(
@@ -1027,10 +1028,6 @@ export function vizScript() {
             cx.stroke();
         }
 
-        function cleanup() {
-            window.removeEventListener("resize", resizeFunc);
-        }
-
         timer = {
             tFunc: function () {
                 // Animation logic calculation
@@ -1322,16 +1319,15 @@ export function vizScript() {
                 // Get time + apply color to BG.
                 var time = new Date();
                 time = time.getHours();
+                var bodyCls = new Set([...document.body.classList, "introcomplete"]);
                 if (time > 17) {
-                    document.body.className += " night";
+                    bodyCls.add("night");
                 }
+                document.body.className = [...bodyCls].join(" ");
 
                 ui.setUI();
-                document.body.className += " introcomplete";
             },
             setUI: function () {
-                // state.ce.locationLabel.style.left = utility.percentDim(utility.point2DFrom3D(["box3Points", "b2"]), X) + 10 + 'px';
-                // state.ce.locationLabel.style.top  = utility.percentDim(["horizon", "e"], Y) - 25 + 'px';
                 // state.ce.container.style.width = canvas.width + "px";
                 // state.ce.container.style.height = canvas.height + "px";
 
@@ -1369,10 +1365,18 @@ export function vizScript() {
 
         // Initialize
 
+        if (document.body.classList.contains("introcomplete")) {
+            for (var i = 0; i < settings.endStep; i++) {
+                timer.tFunc();
+            }
+        }
         // TODO:
         // Just figure out position based on time delta.
         // This code is like 10yrs old tho so prly no reason to..
         timer.interval = setInterval(timer.tFunc, settings.logicRefreshRate); // Logic timer
+        setTimeout(() => {
+            canvas.style.opacity = 1;
+        }, 200);
         canvas.addEventListener("mousemove", utility.setMouseCoords, false);
         canvas.addEventListener("click", onCanvasClick);
 

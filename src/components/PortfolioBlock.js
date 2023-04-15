@@ -6,13 +6,14 @@ import Link from "next/link";
 import { slugify } from "../util";
 import { getImagePathsForPortfolioSlug, getThumbnailSrc } from "../helpers/image";
 import { CalculatedImage } from "./CalculatedImage";
+import { generateSummary } from "../helpers/generation";
 
 export const PortfolioBlock = async ({ item }) => {
-    const { content, excerpt, tags = [], slug, title, years } = item;
+    const { content, tags = [], slug, title, years } = item;
     const [firstImagePath] = getImagePathsForPortfolioSlug(slug);
     const thumbnailSrc = firstImagePath && (await getThumbnailSrc(firstImagePath));
-
     const itemHref = `/${slug}/`;
+    const excerpt = await generateSummary(content);
     return (
         <div className="py-2 mb-3 prose clearfix portfolio-block">
             {thumbnailSrc && (

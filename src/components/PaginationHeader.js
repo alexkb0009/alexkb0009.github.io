@@ -15,7 +15,7 @@ export const PaginationHeader = ({
     return (
         <div className="d-flex mb-2">
             {previousHref && (
-                <Link href={previousHref} className="link-primary">
+                <Link href={previousHref} className="link-primary text-500">
                     <FontAwesomeIcon icon={faAngleLeft} fixedWidth className="mr-1" />
                     Page {currPage - 1}
                 </Link>
@@ -27,7 +27,7 @@ export const PaginationHeader = ({
                 */}
             </div>
             {nextHref && (
-                <Link href={nextHref} className="link-primary">
+                <Link href={nextHref} className="link-primary text-500">
                     Page {currPage + 1}
                     <FontAwesomeIcon icon={faAngleRight} className="ml-1" />
                 </Link>

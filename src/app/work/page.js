@@ -1,9 +1,9 @@
 import React from "react";
 import { getAllPortfolioItems } from "../../helpers/generation";
 import { PortfolioBlock } from "../../components/PortfolioBlock";
-import { COUNT_PER_PAGE } from "./constants";
 import { PaginationFooter } from "../../components/PaginationFooter";
 import { PaginationHeader } from "../../components/PaginationHeader";
+import { COUNT_PER_PAGE } from "./constants";
 
 export const dynamicParams = false;
 
@@ -19,27 +19,26 @@ export const dynamicParams = false;
 //     return params;
 // }
 
-export default async () => {
-    const allItems = await getAllPortfolioItems();
+export default () => {
+    const allItems = getAllPortfolioItems(true);
     const firstPagePortfolioItems = allItems.slice(0, COUNT_PER_PAGE);
     const totalPageCount = Math.ceil(allItems.length / COUNT_PER_PAGE);
-    const moreExist = totalPageCount > 1;
-    const nextHref = moreExist && "work/2";
+    const nextHref = totalPageCount > 1 && "work/2";
 
     return (
         <div className="container mx-auto px-2 py-3">
-            {moreExist && <PaginationHeader nextHref={nextHref} totalCount={totalPageCount} />}
-            {firstPagePortfolioItems.map((item, i, all) => {
+            {nextHref && <PaginationHeader nextHref={nextHref} totalCount={totalPageCount} />}
+            {firstPagePortfolioItems.map((item, i) => {
                 return (
-                    <React.Fragment key={item.slug}>
+                    <React.Fragment key={i}>
                         <PortfolioBlock item={item} />
-                        {(moreExist || i < all.length - 1) && (
+                        {(nextHref || i < firstPagePortfolioItems.length - 1) && (
                             <hr className="mb-3 portfolio-block-separator" />
                         )}
                     </React.Fragment>
                 );
             })}
-            {moreExist && <PaginationFooter nextHref={nextHref} totalCount={totalPageCount} />}
+            {nextHref && <PaginationFooter nextHref={nextHref} totalCount={totalPageCount} />}
         </div>
     );
 };

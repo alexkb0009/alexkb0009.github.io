@@ -8,9 +8,9 @@ import { getAllTags, mapSlugsToTags } from "../../../helpers/generation";
 import { slugify } from "../../../util";
 import { Footer } from "../../../components/Footer";
 
-export default async ({ children, params }) => {
+export default ({ children, params }) => {
     const { tag } = params;
-    const allTags = await getAllTags();
+    const allTags = getAllTags();
     const slugsToTags = mapSlugsToTags(allTags);
     return (
         <>

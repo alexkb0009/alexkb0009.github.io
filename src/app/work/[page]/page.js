@@ -7,15 +7,15 @@ import { PaginationHeader } from "../../../components/PaginationHeader";
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-    const allPortfolioItems = await getAllPortfolioItems(false);
+export function generateStaticParams() {
+    const allPortfolioItems = getAllPortfolioItems(false);
     return generatePageParams(allPortfolioItems.length, COUNT_PER_PAGE);
 }
 
-export default async ({ params }) => {
+export default ({ params }) => {
     const { page: pageNumText } = params;
     const pageNum = parseInt(pageNumText);
-    const allItems = await getAllPortfolioItems(true);
+    const allItems = getAllPortfolioItems(true);
     const totalCount = allItems.length;
     const totalPageCount = Math.ceil(totalCount / COUNT_PER_PAGE);
     const startIndex = (pageNum - 1) * COUNT_PER_PAGE;

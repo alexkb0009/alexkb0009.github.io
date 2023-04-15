@@ -13,6 +13,7 @@ export default function TestPage() {
     return (
         <>
             <VizScript>
+                {/*
                 <div id="header-bar">
                     <div className="container">
                         <h2 id="title" className="mt-0 px-2 text-400">
@@ -20,10 +21,11 @@ export default function TestPage() {
                         </h2>
                     </div>
                 </div>
-                <canvas id="front-page-canvas"></canvas>
+                */}
+                <canvas id="front-page-canvas" style={{ opacity: 0 }}></canvas>
 
                 <div id="frontContainer">
-                    <h4 id="f_locationLabel">Boston, MA</h4>
+                    {/* <h4 id="f_locationLabel">Boston</h4> */}
                     <div id="f_menu" style={{ opacity: 0 }}>
                         <ul>
                             <li className="social">
@@ -51,6 +53,7 @@ export default function TestPage() {
                         <h3>
                             <span className="text-300">View</span>{" "}
                             <Link href="/work" className="link-primary">
+                                <span className="d-none d-md-inline">Recent&nbsp;</span>
                                 Work&nbsp;
                                 <FontAwesomeIcon icon={faAngleRight} />
                             </Link>

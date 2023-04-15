@@ -9,19 +9,19 @@ import { Carousel } from "../../../components/Carousel";
 export const dynamicParams = false;
 
 /** Generates all the static portfolio pages */
-export async function generateStaticParams() {
-    return (await getAllPortfolioItems()).map(({ slug }) => ({ slug }));
+export function generateStaticParams() {
+    return getAllPortfolioItems().map(({ slug }) => ({ slug }));
 }
 
-export async function generateMetadata({ params }) {
-    const portfolioItem = await getPortfolioItemBySlug(params.slug);
+export function generateMetadata({ params }) {
+    const portfolioItem = getPortfolioItemBySlug(params.slug);
     return {
         title: portfolioItem.title,
     };
 }
 
 export default async ({ params }) => {
-    const portfolioItem = await getPortfolioItemBySlug(params.slug);
+    const portfolioItem = getPortfolioItemBySlug(params.slug);
     const { content, link, link_title, title, years } = portfolioItem;
     const htmlContent = await markdownToHtml(content);
 

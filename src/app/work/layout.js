@@ -9,7 +9,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
 import { TopNavLinks } from "../../components/TopNav";
 import { Footer } from "../../components/Footer";
 
-export default async ({ children }) => {
+export default ({ children }) => {
     return (
         <>
             <header className="header-background">

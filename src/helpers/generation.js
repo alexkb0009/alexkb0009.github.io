@@ -10,7 +10,7 @@ export function getPorfolioSlugs() {
     return fs.readdirSync(portfolioDirectory);
 }
 
-export async function getPortfolioItemBySlug(slug, includeContent = true) {
+export function getPortfolioItemBySlug(slug, includeContent = true) {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = join(portfolioDirectory, `${realSlug}.md`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -23,29 +23,28 @@ export async function getPortfolioItemBySlug(slug, includeContent = true) {
     };
 
     if (includeContent) {
-        const words = content.replace(/(?:\r\n|\r|\n)/g, " ").split(" ");
-        const excerptContent = words.slice(0, 30).join(" ") + (words.length > 30 ? "..." : "");
-        const htmlExcerpt = await markdownToHtml(excerptContent);
         item.content = content;
-        item.excerpt = htmlExcerpt;
     }
 
-    return Promise.resolve(item);
+    return item;
 }
 
-export async function getAllPortfolioItems(includeContent = true) {
+export async function generateSummary(markdownContent) {
+    const words = markdownContent.replace(/(?:\r\n|\r|\n)/g, " ").split(" ");
+    const excerptContent = words.slice(0, 30).join(" ") + (words.length > 30 ? "..." : "");
+    return markdownToHtml(excerptContent);
+}
+
+export function getAllPortfolioItems(includeContent = true) {
     const slugs = getPorfolioSlugs();
-    return (
-        await Promise.all(
-            slugs.map(async (slug) => await getPortfolioItemBySlug(slug, includeContent))
-        )
-    )
+    return slugs
+        .map((slug) => getPortfolioItemBySlug(slug, includeContent))
         .filter(({ disabled }) => !disabled)
         .sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
 }
 
-export async function getAllTags() {
-    const allPortfolioItems = await getAllPortfolioItems(false);
+export function getAllTags() {
+    const allPortfolioItems = getAllPortfolioItems(false);
     const allTags = new Set();
     allPortfolioItems.forEach(({ tags }) => {
         tags.forEach((tag) => {
@@ -63,15 +62,15 @@ export function mapSlugsToTags(allTags) {
     return dict;
 }
 
-export async function getAllPortfolioItemsForTagSlug(tagSlug) {
-    const allPortfolioItems = await getAllPortfolioItems(true);
+export function getAllPortfolioItemsForTagSlug(tagSlug) {
+    const allPortfolioItems = getAllPortfolioItems(true);
     return allPortfolioItems.filter(({ tags }) => !!tags.find((tag) => slugify(tag) === tagSlug));
 }
 
 export function generatePageParams(totalCount, countPerPage) {
     const params = [];
-    for (let i = 1; i <= totalCount; i += countPerPage) {
-        const pageNum = Math.floor((i - 1) / countPerPage) + 2;
+    for (let i = 10; i < totalCount; i += countPerPage) {
+        const pageNum = Math.floor(i / countPerPage) + 1;
         params.push({ page: pageNum.toString() });
     }
     return params;
