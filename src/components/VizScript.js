@@ -13,6 +13,11 @@ function translate3d(x = 0, y = 0, z = 0) {
     return `translate3d(${x}, ${y}, ${z})`;
 }
 
+function addToClassName(element, className) {
+    var cls = new Set([...element.classList, className]);
+    element.className = [...cls].join(" ");
+}
+
 export function vizScript() {
     // Global
     var settings = {
@@ -228,7 +233,7 @@ export function vizScript() {
                 containerSize.height - settings.bottomOffset
             );
             window.requestAnimationFrame(drawInitial);
-            setTimeout(ui.setUI, 100);
+            // setTimeout(ui.setUI, 100);
             // document.getElementById("bgarea").style.height = utility.percentDim(
             //     ["horizon", "e"],
             //     Y
@@ -1219,6 +1224,9 @@ export function vizScript() {
                     if (state.model.horizon.e.x < Math.abs(state.model.horizon.s.x) + 100) {
                         state.model.horizon.e.x += 3;
                     }
+                    if (state.time === 500) {
+                        addToClassName(document.body, "introhalfcomplete");
+                    }
                     if (state.model.box2Points.f3.z > state.model.boxPoints.f3.z + 3) {
                         state.model.box2Points.f1.z =
                             state.model.box2Points.f2.z =
@@ -1317,16 +1325,16 @@ export function vizScript() {
         var ui = {
             init: function () {
                 // Get time + apply color to BG.
-                var time = new Date();
-                time = time.getHours();
-                var bodyCls = new Set([...document.body.classList, "introcomplete"]);
-                if (time > 17) {
-                    bodyCls.add("night");
-                }
-                document.body.className = [...bodyCls].join(" ");
+                // var time = new Date();
+                // time = time.getHours();
+                addToClassName(document.body, "introcomplete");
+                // if (time > 17) {
+                //     bodyCls.add("night");
+                // }
 
-                ui.setUI();
+                // ui.setUI();
             },
+            /* No longer used, ported to CSS */
             setUI: function () {
                 // state.ce.container.style.width = canvas.width + "px";
                 // state.ce.container.style.height = canvas.height + "px";
@@ -1338,14 +1346,22 @@ export function vizScript() {
                     X
                 );
 
-                var menuTranslateVals = [
-                    !isNaN(leftDistance) ? leftDistance + offsetWidth + "px" : "56vw",
-                    // utility.percentDim(["horizon", "e"], Y) + 1, // <-- Replaced by calc() style
-                ];
+                // var menuTranslateVals = [
+                //     !isNaN(leftDistance) ? leftDistance + offsetWidth + "px" : "56vw",
+                //     // utility.percentDim(["horizon", "e"], Y) + 1, // <-- Replaced by calc() style
+                // ];
 
-                state.ce.menu.style.transform = translate3d(menuTranslateVals[0]);
+                if (!isNaN(leftDistance)) {
+                    // NaN if relevant box not present yet (?)
+                    state.ce.menu.style.transform = translate3d(leftDistance + offsetWidth + "px");
+                    state.ce.latestItems.style.transform = translate3d(
+                        leftDistance + offsetWidth + "px"
+                    );
+                }
+
+                // state.ce.menu.style.transform = translate3d(menuTranslateVals[0]);
                 // state.ce.menu.style.top = menuTranslateVals[1] + "px";
-                state.ce.latestItems.style.transform = translate3d(menuTranslateVals[0]);
+                // state.ce.latestItems.style.transform = translate3d(menuTranslateVals[0]);
                 // state.ce.latestItems.style.top =
                 //     menuTranslateVals[1] - state.ce.latestItems.offsetHeight + "px";
 
