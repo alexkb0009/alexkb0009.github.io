@@ -26,7 +26,14 @@ export default function TestPage() {
 
                 <div id="frontContainer">
                     {/* <h4 id="f_locationLabel">Boston</h4> */}
-                    <div id="f_menu" style={{ opacity: 0 }}>
+                    <div
+                        id="f_menu"
+                        style={{
+                            // opacity: 0,
+                            top: "calc(min(.65 * 100%, .65 * 80vw + (100% - 80vw) / 2) + 1px)",
+                            transform: "translate3d(56vw, 0, 0)",
+                        }}
+                    >
                         <ul>
                             <li className="social">
                                 <a
@@ -51,7 +58,11 @@ export default function TestPage() {
 
                     <div
                         id="f_latestItems"
-                        style={{ opacity: 1, top: "calc(.65 * (100vh - 57px) - 45px)" }}
+                        style={{
+                            // opacity: 0,
+                            top: "calc(min(.65 * 100%, .65 * 80vw + (100% - 80vw) / 2) - 45px)",
+                            transform: "translate3d(56vw, 0, 0)",
+                        }}
                     >
                         <h3>
                             <span className="text-300">View</span>{" "}

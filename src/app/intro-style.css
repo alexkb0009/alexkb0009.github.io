@@ -60,14 +60,11 @@
   }
   
   #frontContainer #f_menu {
-    background: #e7e7e7;
+    background: #ececec;
     background: rgba(0,0,0,0.04);
     position: absolute;
     opacity: 1 !important;
     transition: 1.2s;
-    left: 56vw; /* 56vw */
-    top: 65vh;
-    top: calc(.65 * (100vh - 57px) + 1px);
   }
   
   #frontContainer #f_menu > ul {
@@ -124,10 +121,7 @@
     position: absolute;
     opacity: 1 !important;
     padding: 5px;
-    left: 56vw; /* 56vw */
-    top: 57.75vh;
-    /* top: calc(.65 * (100vh - 57px) - 45px); */
-    transition: 1.2s, opacity 1.8s 1.2s, background-color 3s;
+    transition: top .8s, transform 1.2s, opacity 1.8s;
     /* background-color: rgba(238, 238, 238, 0.8); */
   }
   

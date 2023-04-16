@@ -1,13 +1,17 @@
 "use client";
 
 /**
- * Don't judge this code too harshly, it was written almost 10+ years ag
+ * Don't judge this code too harshly, most of it was written almost 10+ years ago
  */
 
 import React, { useEffect } from "react";
 import debounce from "lodash.debounce";
 import { heebo } from "../helpers/font";
 import clsx from "clsx";
+
+function translate3d(x = 0, y = 0, z = 0) {
+    return `translate3d(${x}, ${y}, ${z})`;
+}
 
 export function vizScript() {
     // Global
@@ -152,8 +156,7 @@ export function vizScript() {
                     state.useDim.height = width / settings.aspectRatio;
                     state.useDim.offsetWidth = 0;
                     state.useDim.offsetHeight = parseInt((height - state.useDim.height) / 2);
-                }
-                if (width / settings.aspectRatio > height) {
+                } else {
                     state.useDim.height = height;
                     state.useDim.width = height * settings.aspectRatio;
                     state.useDim.offsetHeight = 0;
@@ -1334,17 +1337,18 @@ export function vizScript() {
                     utility.point2DFrom3D(["box3Points", "b2"]),
                     X
                 );
-                if (!isNaN(leftDistance)) {
-                    state.ce.menu.style.left = leftDistance + offsetWidth + "px";
-                }
-                state.ce.menu.style.top =
-                    utility.percentDim(["horizon", "e"], Y) +
-                    1 /* - 4 - state.ce.menu.offsetHeight */ +
-                    "px";
 
-                state.ce.latestItems.style.left = state.ce.menu.style.left;
-                state.ce.latestItems.style.top =
-                    parseInt(state.ce.menu.style.top) - state.ce.latestItems.offsetHeight + "px";
+                var menuTranslateVals = [
+                    !isNaN(leftDistance) ? leftDistance + offsetWidth + "px" : "56vw",
+                    // utility.percentDim(["horizon", "e"], Y) + 1, // <-- Replaced by calc() style
+                ];
+
+                state.ce.menu.style.transform = translate3d(menuTranslateVals[0]);
+                // state.ce.menu.style.top = menuTranslateVals[1] + "px";
+                state.ce.latestItems.style.transform = translate3d(menuTranslateVals[0]);
+                // state.ce.latestItems.style.top =
+                //     menuTranslateVals[1] - state.ce.latestItems.offsetHeight + "px";
+
                 /*
             state.ce.pageTitle.style.top  = utility.percentDim(utility.point2DFrom3D(["detailPoints", "box1frontLeft"]), Y) - state.ce.pageTitle.offsetHeight - 15 + 'px';
             state.ce.pageTitle.style.left = utility.percentDim(utility.point2DFrom3D(["detailPoints", "box1frontLeft"]), X) + 15 + 'px';
