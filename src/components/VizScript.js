@@ -233,7 +233,7 @@ export function vizScript() {
                 containerSize.height - settings.bottomOffset
             );
             window.requestAnimationFrame(drawInitial);
-            // setTimeout(ui.setUI, 100);
+            setTimeout(ui.setUI, 100);
             // document.getElementById("bgarea").style.height = utility.percentDim(
             //     ["horizon", "e"],
             //     Y
@@ -1332,10 +1332,17 @@ export function vizScript() {
                 //     bodyCls.add("night");
                 // }
 
-                // ui.setUI();
+                ui.setUI();
             },
             /* No longer used, ported to CSS */
             setUI: function () {
+                if (window.innerWidth < 550) {
+                    state.ce.menu.style.transform = "translate3d(calc(95vw - 100% - 24px),0,0)";
+                    state.ce.latestItems.style.transform =
+                        "translate3d(calc(95vw - 100% - 24px),0,0)";
+                    return;
+                }
+
                 // state.ce.container.style.width = canvas.width + "px";
                 // state.ce.container.style.height = canvas.height + "px";
 

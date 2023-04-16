@@ -33,7 +33,7 @@ export default function TestPage() {
                             top: "calc(min(.65 * 100%, .65 * 80vw + (100% - 80vw) / 2) + 1px)",
                             // top: "calc(75vh - 58px)",
                             // transform: "translate3d(56vw, 0, 0)",
-                            transform: "translate3d(calc(100vw - 100% - 24px),0,0)",
+                            transform: "translate3d(calc(95vw - 100% - 24px),0,0)",
                         }}
                     >
                         <ul>
@@ -65,7 +65,7 @@ export default function TestPage() {
                             top: "calc(min(.65 * 100%, .65 * 80vw + (100% - 80vw) / 2) - 45px)",
                             // top: "calc(75vh - 104px)",
                             // transform: "translate3d(56vw, 0, 0)",
-                            transform: "translate3d(calc(100vw - 100% - 24px),0,0)",
+                            transform: "translate3d(calc(95vw - 100% - 24px),0,0)",
                         }}
                     >
                         <h3>
