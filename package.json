@@ -6,11 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
-    "build": "next build && npm run copy-outfolder && npm run copy-index",
+    "build": "next build && npm run copy-outfolder",
     "start": "next start",
     "lint": "next lint",
     "copy-outfolder": "cp -R out/* ../personal-site-next-out/",
-    "copy-index": "cp .next/server/app/work.html ../personal-site-next-out/work.html && cp .next/server/app/work.rsc ../personal-site-next-out/work.txt",
     "push": "cd ../personal-site-next-out && git checkout main && git add . && git commit -m 'stuff' && git push origin main && cd ../personal-site-next"
   },
   "author": "Alexander Balashov",
