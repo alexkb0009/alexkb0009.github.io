@@ -36,6 +36,7 @@
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
     "sass": "^1.62.0",
+    "serve": "^14.2.1",
     "sharp": "^0.32.0",
     "slick-carousel": "^1.8.1"
   },
