@@ -6,7 +6,7 @@ import { heebo } from "../helpers/font";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./../scss/styles.scss";
 
-config.autoAddCss = false;
+config.autoAddCss = true;
 
 export const metadata = {
     icons: {

@@ -233,7 +233,7 @@ export function vizScript() {
                 containerSize.height - settings.bottomOffset
             );
             window.requestAnimationFrame(drawInitial);
-            setTimeout(ui.setUI, 100);
+            // setTimeout(ui.setUI, 100);
             // document.getElementById("bgarea").style.height = utility.percentDim(
             //     ["horizon", "e"],
             //     Y
@@ -1332,7 +1332,7 @@ export function vizScript() {
                 //     bodyCls.add("night");
                 // }
 
-                ui.setUI();
+                // ui.setUI();
             },
             /* No longer used, ported to CSS */
             setUI: function () {

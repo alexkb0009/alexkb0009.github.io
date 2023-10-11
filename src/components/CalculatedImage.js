@@ -1,5 +1,3 @@
-"use server";
-
 import { join } from "path";
 import React from "react";
 import Image from "next/image";

@@ -10,7 +10,7 @@ export const metadata = {
 export default async () => {
     return (
         <>
-            <div className="print-only mb-4 mt-3 name-container">
+            <div className="print-only mb-4 mt-0 name-container">
                 <div className="image-column">
                     <div className="image-container">
                         <img src="https://www.gravatar.com/avatar/e32a241bfb3ee9cac4a47f9b72be874c?s=200" />
@@ -26,6 +26,9 @@ export default async () => {
                 </h2>
             </div>
             <About />
+            <div className="pt-1 print-only text-center">
+                <em>Printed on {new Date().toLocaleDateString()}</em>
+            </div>
         </>
     );
 };
